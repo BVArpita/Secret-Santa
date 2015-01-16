@@ -1,0 +1,110 @@
+<html>
+<style>
+div{
+   color: red;
+}
+
+body{
+    
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    font-size: 22px;
+}
+input[type='text'] { 
+    font-size: 22px;
+ }
+ input[type='password'] { 
+    font-size: 22px;
+ }
+ input[type='submit'] { 
+    font-size: 20px;
+ }
+
+ h4{
+    color:red;
+    align:middle;
+   }
+h1{
+    color:green;
+    text-align: center;
+    }
+label{
+    font-size: 22px;
+}
+form {
+    width: 30%;
+    margin: 0 auto;
+}
+img{
+    height:22px;
+    width:22px;
+}
+</style>
+<body>
+<h1> ADD PARTICIPANTS </h1>
+<form method="post">
+<label>
+Name
+<input type="text" name="Name">
+</label>
+
+
+{% if names %}
+    {%for name in names %}
+        {%if name  %}
+        <input type= "hidden" name="Name"  value={{name}} required / >
+        
+        {% endif %}
+    {% endfor %}
+    {% endif %}
+
+
+<br>
+<label>
+Email
+<input type="text" name="Email">
+</label>
+
+
+{% if emails %}
+    {%for email in emails %}
+        {% if email %}
+        <input type= "hidden" name="Email"  value={{email}} required />
+        {% endif %}
+    {% endfor %}
+    {% endif %}
+
+
+<br>
+<input type="submit" name="Add" value="Add">
+
+<br>
+<div>{{error}}</div>
+
+{% if names | length == emails | length%}
+<h1>Participants</h1>
+
+{% for name in names %}
+
+    <img src="https://cdn2.iconfinder.com/data/icons/merry-christmas/500/Sock-512.png">{{name}}</img>
+    <br>
+    
+
+{% endfor %}
+{%endif %}
+<br>
+{% if names|length >1%}
+<input type="submit" value="Play" name="Play">
+{% endif %}
+</form>
+
+<br>
+<form method="post" >
+{{message}}
+<br>
+{%if message %}
+    <input type="submit" value="Post a clue" name="Postaclue">
+{%endif%}
+</form>
+</body>
+</html>

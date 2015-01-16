@@ -1,0 +1,59 @@
+<html>
+<style>
+div{
+   color: red;
+}
+
+body{
+    background-image: url(http://media.infomat.com/images/_originals/1021.png);
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+}
+input[type='text'] { 
+    font-size: 22px;
+ }
+ input[type='password'] { 
+    font-size: 22px;
+ }
+ input[type='submit'] { 
+    font-size: 20px;
+ }
+h4{
+    color:red;
+    
+}
+label{
+    font-size: 22px;
+}
+form {
+    width: 30%;
+    margin: 0 auto;
+}
+</style>
+<body>
+<form method="post" action="/testhandler">
+<label>
+Group Name(*)
+<input type="text" name="Username" value={{Username}} >
+</label>
+<br>
+<label>
+Password(*)
+<input type="password" name="Password" value={{Password}}>
+</label>
+<br>
+<label>
+Confirm password(*)
+<input type="password" name="confirmpassword" value={{confirmpassword}}>
+</label>
+<br>
+<label>
+Email(*)
+<input type="text" name="email" value={{email}}>
+</label>
+<br>
+<input type="submit" name="submit">
+<div >{{error}}</div>
+</form>
+</body>
+</html>
